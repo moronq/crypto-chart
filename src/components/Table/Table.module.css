@@ -9,3 +9,8 @@
   justify-content: space-between;
   margin-left: 50px;
 }
+.select_container {
+  width: 100px;
+  display: flex;
+  justify-content: end;
+}
