@@ -3,7 +3,9 @@
   border: 1px solid var(--color-background);
   border-radius: 5px;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .button:hover {

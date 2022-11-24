@@ -28,22 +28,24 @@ export const Select: React.FC<SelectProps> = ({ activeCoin, setActiveCoin, coinL
 
   return (
     <div ref={coinListRef} className={styles.select_container}>
-      <Button onClick={onClickHandler}>{showedCoin}</Button>
-      {active && (
-        <ul className={styles.coin_list_container}>
-          {coinList &&
-            coinList.map((coin) => (
-              <li
-                className={styles.coin_list_item}
-                key={coin.id}
-                aria-hidden
-                onClick={() => onSelectHandler(coin)}
-              >
-                {coin.symbol}
-              </li>
-            ))}
-        </ul>
-      )}
+      <Button onClick={onClickHandler}>
+        <div className={`${styles.select_icon_container} ${active ? styles.active : ''}`} />
+        {showedCoin}
+      </Button>
+
+      <ul className={`${styles.coin_list_container} ${active ? styles.active : ''}`}>
+        {coinList &&
+          coinList.map((coin) => (
+            <li
+              className={styles.coin_list_item}
+              key={coin.id}
+              aria-hidden
+              onClick={() => onSelectHandler(coin)}
+            >
+              {coin.symbol}
+            </li>
+          ))}
+      </ul>
     </div>
   )
 }
