@@ -1,7 +1,7 @@
 import { api } from '@utils/api/instance'
 
-export const requestExchange = (link: string, tsym: string, limit: number, aggregate: number) =>
-  api.get<RequestExchange>(`exchange/${link}`, {
+export const requestExchangeHistoday = (tsym: string, limit: number, aggregate: number) =>
+  api.get<RequestExchange>(`exchange/histoday`, {
     params: {
       tsym,
       limit,
@@ -10,5 +10,5 @@ export const requestExchange = (link: string, tsym: string, limit: number, aggre
     }
   })
 
-export const requestOneWeekExchange = (tsym: string) => requestExchange('histoday', tsym, 7, 1) // 7 intervals with 1 day length
-export const requestOneMonthExchange = (tsym: string) => requestExchange('histoday', tsym, 30, 1) // 30 intervals with 1 hour length
+export const requestOneWeekExchange = (tsym: string) => requestExchangeHistoday(tsym, 7, 1) // 7 intervals with 1 day length
+export const requestOneMonthExchange = (tsym: string) => requestExchangeHistoday(tsym, 30, 1) // 30 intervals with 1 hour length

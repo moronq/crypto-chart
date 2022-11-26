@@ -1,0 +1,16 @@
+.chart_container {
+  padding: 10px;
+  height: 100%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.chart_title {
+  text-align: center;
+}
+.chart {
+  background-color: red;
+  height: 100%;
+}
+.chart_wrapper {
+  height: 100%;
+}

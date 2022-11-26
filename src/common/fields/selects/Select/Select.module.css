@@ -3,6 +3,7 @@
 }
 
 .coin_list_container {
+  background-color: white;
   position: absolute;
   box-shadow: inset 0 0 0 1px var(--color-background);
   height: 0px;

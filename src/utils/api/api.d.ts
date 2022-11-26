@@ -6,3 +6,4 @@ interface RequestCoinList {
 interface RequestExchange {
   Data: Array<Histohour>
 }
+type RequestsIntervalType = 'day' | 'month' | 'threeDays' | 'week'
