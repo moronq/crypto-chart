@@ -6,6 +6,7 @@
 }
 .chart_title {
   text-align: center;
+  font-weight: 600;
 }
 .chart {
   background-color: red;

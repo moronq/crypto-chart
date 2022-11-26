@@ -32,7 +32,7 @@ export const Table: React.FC = () => {
             interval={constants.lastRequest}
           />
         ) : (
-          <div className={styles.chart_no_data}>There is no data for this coin</div>
+          <div className={styles.chart_no_data}>The API has no data for this coin</div>
         )}
       </div>
     </div>

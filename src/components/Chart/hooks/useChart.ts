@@ -86,11 +86,15 @@ export const useChart = ({ chart, ref, activeCoin }: UseChartProps) => {
     }
   }, [activeCoin, chart])
 
-  const titles: Record<RequestsIntervalType, string> = {
-    day: 'One day',
-    month: 'One month',
-    threeDays: '3 Days',
-    week: 'One week'
-  }
+  const titles: Record<RequestsIntervalType, string> = React.useMemo(
+    () => ({
+      day: 'One day',
+      month: 'One month',
+      threeDays: '3 Days',
+      week: 'One week'
+    }),
+    []
+  )
+
   return { titles }
 }
