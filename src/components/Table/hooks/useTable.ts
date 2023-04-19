@@ -1,4 +1,4 @@
-import React from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import {
   requestOneDayExchange,
@@ -8,11 +8,11 @@ import {
 } from '@utils/api'
 
 export const useTable = () => {
-  const [activeCoin, setActiveCoin] = React.useState<null | CoinInfo>(null)
-  const [chart, setChart] = React.useState<Array<Histohour> | null>(null)
-  const [lastRequest, setLastRequest] = React.useState<null | RequestsIntervalType>(null)
+  const [activeCoin, setActiveCoin] = useState<null | CoinInfo>(null)
+  const [chart, setChart] = useState<Array<Histohour> | null>(null)
+  const [lastRequest, setLastRequest] = useState<RequestsIntervalType>('month')
 
-  const regularRequest = React.useCallback(
+  const regularRequest = useCallback(
     (activeCoin: CoinInfo | null, callback: () => void, title: RequestsIntervalType) => {
       if (activeCoin) {
         callback()
@@ -22,14 +22,14 @@ export const useTable = () => {
     [activeCoin]
   )
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (activeCoin) {
       requestOneMonthExchange(activeCoin?.symbol).then((res) => setChart(res.data.Data))
       setLastRequest(lastRequest || 'month')
     }
   }, [activeCoin])
 
-  const requests: Record<RequestsIntervalType, () => void> = React.useMemo(
+  const requests: Record<RequestsIntervalType, () => void> = useMemo(
     () => ({
       day: () =>
         regularRequest(

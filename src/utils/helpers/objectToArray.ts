@@ -1,9 +1,2 @@
-export const objectToArray = (obj: Record<string, CoinInfo>) => {
-  const result = [] as Array<{}>
-  if (Object.keys(obj)) {
-    for (const key in obj) {
-      result.push(obj[key])
-    }
-  }
-  return result
-}
+export const objectToArray = (obj: Record<string, CoinInfo>) =>
+  Object.keys(obj).length ? Object.values(obj) : ([] as Array<{}>)

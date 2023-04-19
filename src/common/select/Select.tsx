@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button } from '@common/buttons'
+import { Button } from '@common'
 
 import { useSelect } from './hooks/useSelect'
 

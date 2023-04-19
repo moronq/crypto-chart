@@ -4,14 +4,17 @@ import React from 'react'
 import { convertTime } from '@utils/helpers'
 
 interface UseChartProps {
-  activeCoin: CoinInfo | null
-  chart: Array<Histohour> | null
+  constants: {
+    activeCoin: CoinInfo | null
+    chart: Array<Histohour> | null
+  }
   ref: React.MutableRefObject<null>
 }
 
 type CountsByDateType = Array<{ date: Date; count: number }>
 
-export const useChart = ({ chart, ref, activeCoin }: UseChartProps) => {
+export const useChart = ({ ref, constants }: UseChartProps) => {
+  const { chart, activeCoin } = constants
   React.useEffect(() => {
     if (chart && chart.length) {
       if (ref.current) {
@@ -86,15 +89,12 @@ export const useChart = ({ chart, ref, activeCoin }: UseChartProps) => {
     }
   }, [activeCoin, chart])
 
-  const titles: Record<RequestsIntervalType, string> = React.useMemo(
-    () => ({
-      day: 'One day',
-      month: 'One month',
-      threeDays: '3 Days',
-      week: 'One week'
-    }),
-    []
-  )
+  const titles: Record<RequestsIntervalType, string> = {
+    day: 'One day',
+    month: 'One month',
+    threeDays: '3 Days',
+    week: 'One week'
+  }
 
   return { titles }
 }

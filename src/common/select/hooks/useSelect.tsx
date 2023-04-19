@@ -2,7 +2,7 @@ import React, { RefObject } from 'react'
 
 import { requestCoinList } from '@utils/api'
 import { objectToArray } from '@utils/helpers'
-import { useOnClickOutside } from '@utils/hooks'
+import { useOnClickOutside } from '@utils/hooks/useOnClickOutside'
 
 interface UseSelectProps {
   setActiveCoin: React.Dispatch<React.SetStateAction<CoinInfo | null>>

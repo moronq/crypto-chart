@@ -13,12 +13,7 @@ export const Table: React.FC = () => {
   return (
     <div className={styles.table_container}>
       <div className={styles.period_selector_container}>
-        <PeriodSelector
-          onDayClick={functions.onDayClick}
-          onMonthClick={functions.onMonthClick}
-          onThreeDayClick={functions.onThreeDayClick}
-          onWeekClick={functions.onWeekClick}
-        />
+        <PeriodSelector functions={functions} />
         <Button onClick={functions.onRefreshClick}>Refresh</Button>
         <div className={styles.select_container}>
           <Select activeCoin={constants.activeCoin} setActiveCoin={functions.setActiveCoin} />
@@ -26,11 +21,7 @@ export const Table: React.FC = () => {
       </div>
       <div className={styles.chart_container}>
         {constants.lastRequest && constants.chart && constants.chart.length ? (
-          <Chart
-            activeCoin={constants.activeCoin}
-            chart={constants.chart}
-            interval={constants.lastRequest}
-          />
+          <Chart constants={constants} />
         ) : (
           <div className={styles.chart_no_data}>The API has no data for this coin</div>
         )}
